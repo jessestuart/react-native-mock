@@ -2,16 +2,16 @@
  *https://github.com/facebook/react-native/blob/master/Libraries/Components/DrawerAndroid/DrawerLayoutAndroid.android.js
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import NativeMethodsMixin from '../mixins/NativeMethodsMixin';
 import View from './View';
 import UIManager from '../NativeModules/UIManager';
 import ColorPropType from '../propTypes/ColorPropType';
 
-const ReactPropTypes = React.PropTypes;
+const ReactPropTypes = PropTypes;
 const DrawerConsts = UIManager.AndroidDrawerLayout.Constants;
 
 const DrawerLayoutAndroid = React.createClass({
-
   propTypes: {
     ...View.propTypes,
     /**
@@ -40,7 +40,7 @@ const DrawerLayoutAndroid = React.createClass({
      */
     drawerPosition: ReactPropTypes.oneOf([
       DrawerConsts.DrawerPosition.Left,
-      DrawerConsts.DrawerPosition.Right
+      DrawerConsts.DrawerPosition.Right,
     ]),
     /**
      * Specifies the width of the drawer, more precisely the width of the view that be pulled in
@@ -57,7 +57,7 @@ const DrawerLayoutAndroid = React.createClass({
     drawerLockMode: ReactPropTypes.oneOf([
       'unlocked',
       'locked-closed',
-      'locked-open'
+      'locked-open',
     ]),
     /**
      * Function called whenever there is an interaction with the navigation view.
@@ -95,7 +95,7 @@ const DrawerLayoutAndroid = React.createClass({
   mixins: [NativeMethodsMixin],
 
   statics: {
-    positions: DrawerConsts.DrawerPosition
+    positions: DrawerConsts.DrawerPosition,
   },
 
   openDrawer() {
@@ -108,8 +108,7 @@ const DrawerLayoutAndroid = React.createClass({
 
   render() {
     return null;
-  }
-
+  },
 });
 
 module.exports = DrawerLayoutAndroid;
